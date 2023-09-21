@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/teste', function () {
+    return "TESTADO!!!";
+});
+
+Route::get('/lista-usuarios', function () {
+    $usuarios = User::all();
+
+    return view('listaUsuarios', compact('usuarios'));
+
+})->name('lista-usuarios');
