@@ -4,6 +4,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $posts = Post::all();
+
+    return view('inicial', compact('posts'));
 });
 
 
@@ -61,12 +66,30 @@ Route::post('/logar', function (Request $request) {
         'senha' => ['required'],
     ]);
 
-    if (Auth::attempt($credentials)) {
+    if (Auth::attempt(['email'=>$credentials ['email'],
+    'password' =>$credentials ['senha']])){
+
         $request->session()->regenerate();
+
+        return redirec()->inteded('/');
 
         //return redirect()->intended('dashboard');
         return "Logado com sucesso!!";
     }
 
     return "Erro ao logar!!! Usuário ou senha inválidos";
+});
+Route::middleware (['auth'])->group(function () {
+Route::view('/cria-post','criaPost');
+
+route::post('/salva-post', function (Request $request) {
+    $post = new Post();
+
+    $post->user_id= Auth::id();
+    $post->mensagem = $request->mensagem;
+
+    $post->save();
+    
+    return redirect('/');
+});
 });
