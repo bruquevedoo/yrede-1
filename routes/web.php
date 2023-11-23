@@ -71,8 +71,7 @@ Route::post('/logar', function (Request $request) {
 
         $request->session()->regenerate();
 
-        return redirec()->inteded('/');
-
+         return redirect()->intended('/');
         //return redirect()->intended('dashboard');
         return "Logado com sucesso!!";
     }
