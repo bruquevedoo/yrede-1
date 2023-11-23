@@ -57,7 +57,7 @@ Route::post('/salva-usuario',
 })->name('salva-usuario');
 
 
-Route::view('/login', 'login');
+Route::view('/login', 'login')->name("login");
 
 Route::post('/logar', function (Request $request) {
     
