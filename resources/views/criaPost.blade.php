@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Postagem</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #222;
-            color: #eee;
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #d8b4e2;
+        color: #eee;
         }
 
         div {
             padding: 20px 0;
             font-size: 24px;
-            color: #ff5733;
+            color: #000;
         }
 
         form {
@@ -33,7 +33,7 @@
             margin-bottom: 20px;
             border-radius: 5px;
             border: 1px solid #444;
-            background-color: #333;
+            background-color: #000;
             color: #eee;
             resize: none;
         }
@@ -42,15 +42,11 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #ff5733;
+            background-color: #8a2be2;
             color: #fff;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #e64c00; /* Tom mais escuro de laranja */
         }
     </style>
 </head>
